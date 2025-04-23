@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: irisdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  preprocessing:
+    build: ./preprocessing
+    depends_on:
+      - postgres
+    volumes:
+      - ./iris.csv:/app/iris.csv
+
+  modeling:
+    build: ./modeling
+    depends_on:
+      - postgres
+      - preprocessing
+      - mlflow
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    volumes:
+      - ./mlflow:/mlflow
+
+
+  api:
+    build: ./api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - modeling
+    volumes:
+      - ./mlflow:/mlflow
+
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow
+    command: mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root /mlflow/artifacts --host 0.0.0.0
+    volumes:
+      - ./mlflow:/mlflow
+    ports:
+      - "5000:5000"
+
+
+volumes:
+  pgdata:
