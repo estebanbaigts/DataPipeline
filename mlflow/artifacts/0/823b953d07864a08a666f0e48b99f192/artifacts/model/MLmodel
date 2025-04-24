@@ -1,3 +1,4 @@
+artifact_path: model
 flavors:
   python_function:
     env:
@@ -13,7 +14,8 @@ flavors:
     serialization_format: cloudpickle
     sklearn_version: 1.6.1
 mlflow_version: 2.21.3
-model_size_bytes: 315043
-model_uuid: 1f5b68b856894771803c91decae925f7
+model_size_bytes: 293290
+model_uuid: e05f3b6507b144988a743525e517b88e
 prompts: null
-utc_time_created: '2025-04-24 14:58:36.412077'
+run_id: 823b953d07864a08a666f0e48b99f192
+utc_time_created: '2025-04-24 14:17:57.261867'
