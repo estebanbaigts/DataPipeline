@@ -28,3 +28,6 @@ Ce dépôt contient un pipeline de traitement de données dockerisé avec les co
 ## Lancer le projet
 
 docker-compose up --build
+avec curl : curl -X POST "http://localhost:8000/predict?sepal_width=3.5" en remplaçant 3.5 par la mesure désirer
+dans un navigateur : localhost:8000/predict
+pour MLflow : localhost:5000/
