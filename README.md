@@ -1,32 +1,49 @@
-## Data Pipeline – Prédiction de la longueur des sépales Iris
+# Data Pipeline – Prédiction de la longueur des sépales Iris
 
-Projet de spécialisation – Promo 2025  
-Estimons la **longueur des sépales** à partir de leur **largeur** via un pipeline de machine learning complet.
+**Projet de spécialisation – Promo 2025**  
+Ce projet vise à estimer la **longueur des sépales** d'Iris à partir de leur **largeur** en utilisant un pipeline complet de machine learning.
 
 ---
 
-## Contenu du projet
+## 📂 Contenu du projet
 
 Ce dépôt contient un pipeline de traitement de données dockerisé avec les composants suivants :
 
-- **Preprocessing** : chargement et enregistrement dans PostgreSQL
-- **Modélisation** : entraînement d’un modèle et log dans MLflow
-- **API REST** : prédictions en temps réel via FastAPI
-- **MLflow UI** : visualisation des expériences
-- **Base de données PostgreSQL**
+1. **Preprocessing** :  
+   - Chargement des données et enregistrement dans une base PostgreSQL.
+
+2. **Modélisation** :  
+   - Entraînement d’un modèle de machine learning et suivi des expériences via MLflow.
+
+3. **API REST** :  
+   - Prédictions en temps réel grâce à FastAPI.
+
+4. **MLflow UI** :  
+   - Interface pour visualiser les expériences et les métriques.
+
+5. **Base de données PostgreSQL** :  
+   - Stockage des données pour le pipeline.
 
 ---
 
-## Prérequis
+## 🛠️ Prérequis
 
-- **Windows 11**
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé et fonctionnel
-- WSL2 activé (Docker vous proposera de le configurer automatiquement)
+Avant de commencer, assurez-vous d’avoir les éléments suivants installés sur votre machine :
+
+- **Système d’exploitation** :  
+  - Windows 11 (ou un environnement compatible Docker)
+  
+- **Logiciels nécessaires** :  
+  - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé et fonctionnel  
+  - WSL2 activé (Docker vous proposera de le configurer automatiquement si nécessaire)
 
 ---
 
-## Lancer le projet
+## 🚀 Lancer le projet
 
+Pour démarrer le pipeline, exécutez la commande suivante dans le terminal :
+
+```bash
 docker-compose up --build
 avec curl : curl -X POST "http://localhost:8000/predict?sepal_width=3.5" en remplaçant 3.5 par la mesure désirer
 dans un navigateur : localhost:8000/predict

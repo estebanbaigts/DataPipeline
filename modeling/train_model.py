@@ -39,5 +39,3 @@ with mlflow.start_run():
 
 mlflow.sklearn.save_model(model, shared_path)
 print("✅ Modèle sauvegardé localement à :", shared_path)
-
-
