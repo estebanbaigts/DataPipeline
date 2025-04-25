@@ -5,7 +5,7 @@ import pandas as pd
 # Ajouter le répertoire parent au PYTHONPATH
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../preprocessing")))
 
-from preprocess import df
+from preprocess import preprocess
 
 def test_preprocess_cleaning():
     # Vérification des colonnes

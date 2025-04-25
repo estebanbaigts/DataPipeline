@@ -2,6 +2,11 @@ import pytest
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../modeling")))
+
 from train_model import train_test_split
 
 def test_train_model():

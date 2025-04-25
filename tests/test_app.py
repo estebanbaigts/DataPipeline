@@ -1,7 +1,12 @@
 from fastapi.testclient import TestClient
-from app import app
+import sys
+import os
 
-client = TestClient(app)
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../api")))
+
+from app import df
+
+client = TestClient(df)
 
 def test_predict_endpoint():
     response = client.post("/predict", json={"sepal_width": 3.0})
